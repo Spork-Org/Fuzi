@@ -20,7 +20,12 @@
 // THE SOFTWARE.
 
 import Foundation
-import libxml2
+#if os(Linux)
+    import CLibXML2
+import Glibc
+#else
+    import libxml2
+#endif
 
 // Public Helpers
 

@@ -20,7 +20,11 @@
 // THE SOFTWARE.
 
 import Foundation
-import libxml2
+#if os(Linux)
+    import CLibXML2
+#else
+    import libxml2
+#endif
 
 /// XML document which can be searched and queried.
 open class XMLDocument {
@@ -33,9 +37,9 @@ open class XMLDocument {
   /// The string encoding for the document. This is NSUTF8StringEncoding if no encoding is set, or it cannot be calculated.
   open fileprivate(set) lazy var encoding: String.Encoding = {
     if let encodingName = ^-^self.cDocument.pointee.encoding {
-      let encoding = CFStringConvertIANACharSetNameToEncoding(encodingName as CFString?)
-      if encoding != kCFStringEncodingInvalidId {
-        return String.Encoding(rawValue: UInt(CFStringConvertEncodingToNSStringEncoding(encoding)))
+      let encoding = EncoderManager.StringConvertIANACharSetNameToEncoding(encodingName)
+      if let encoding {
+        return encoding
       }
     }
     return String.Encoding.utf8

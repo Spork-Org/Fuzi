@@ -1,0 +1,62 @@
+
+
+struct EncoderManager {
+    
+    static func StringConvertIANACharSetNameToEncoding(_ string: String) -> String.Encoding? {
+        return charsetToEncodingMap[string]
+    }
+    static private let charsetToEncodingMap: [String: String.Encoding] = [
+        "US-ASCII": .ascii,
+        "ANSI_X3.4-1968": .ascii,
+        "iso-ir-6": .ascii,
+        "ANSI_X3.4-1986": .ascii,
+        "ISO_646.irv:1991": .ascii,
+        "ASCII": .ascii,
+        "ISO646-US": .ascii,
+        "us": .ascii,
+        "IBM367": .ascii,
+        "cp367": .ascii,
+        "csASCII": .ascii,
+        "UTF-8": .utf8,
+        "ISO-8859-1": .isoLatin1,
+        "iso-ir-100": .isoLatin1,
+        "ISO_8859-1": .isoLatin1,
+        "latin1": .isoLatin1,
+        "l1": .isoLatin1,
+        "IBM819": .isoLatin1,
+        "CP819": .isoLatin1,
+        "csISOLatin1": .isoLatin1,
+        "ISO-8859-2": .isoLatin2,
+        "iso-ir-101": .isoLatin2,
+        "ISO_8859-2": .isoLatin2,
+        "latin2": .isoLatin2,
+        "l2": .isoLatin2,
+        "csISOLatin2": .isoLatin2,
+        "CP1251": .windowsCP1251,
+        "windows-1251": .windowsCP1251,
+        "CP1252": .windowsCP1252,
+        "windows-1252": .windowsCP1252,
+        "CP1253": .windowsCP1253,
+        "windows-1253": .windowsCP1253,
+        "CP1254": .windowsCP1254,
+        "windows-1254": .windowsCP1254,
+        "CP1250": .windowsCP1250,
+        "windows-1250": .windowsCP1250,
+        "ISO-2022-JP": .iso2022JP,
+        "csISO2022JP": .iso2022JP,
+        "SHIFT_JIS": .shiftJIS,
+        "MS_Kanji": .shiftJIS,
+        "csShiftJIS": .shiftJIS,
+        "EUC-JP": .japaneseEUC,
+        "Extended_UNIX_Code_Packed_Format_for_Japanese": .japaneseEUC,
+        "csEUCPkdFmtJapanese": .japaneseEUC,
+        "UTF-16": .utf16,
+        "UTF-16BE": .utf16BigEndian,
+        "UTF-16LE": .utf16LittleEndian,
+        "UTF-32": .utf32,
+        "UTF-32BE": .utf32BigEndian,
+        "UTF-32LE": .utf32LittleEndian,
+        "macintosh": .macOSRoman,
+    ]
+    
+}
