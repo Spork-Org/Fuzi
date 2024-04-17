@@ -1,5 +1,5 @@
 module CLibXML2 [system] {
-  link "libxml2"
+  link "xml2"
   umbrella header "libxml2_bridging.h"
   export *
   module * { export * }
